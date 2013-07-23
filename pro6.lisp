@@ -1,3 +1,4 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 6.
 ;
 ; Calculates the difference between the square of the sum and the sum of the
@@ -7,16 +8,18 @@
 ; a collector function (colpro6) to calculate the difference.
 
 ; Imperitive influenced way. (Boring way!)
-(defun sums (n)
-  (/ (* n (+ n 1)) 2))
+;(defun sums (n)
+  ;(/ (* n (+ n 1)) 2))
 
-(defun squares (n)
-  (cond
-    ((eq n 1) 1)
-    (t (+ (* n n) (squares (- n 1))))))
+;(defun squares (n)
+  ;(cond
+    ;((eq n 1) 1)
+    ;(t (+ (* n n) (squares (- n 1))))))
 
-(defun pro6 (n)
-  (- (expt (sums n) 2) (squares n)))
+;(defun pro6 (n)
+  ;(- (expt (sums n) 2) (squares n)))
+
+
 
 
 ; Much more exciting way that uses the collector function.
@@ -30,3 +33,4 @@
              (lambda (a b)
                (funcall col (+ a n) (+ (* n n) b)))))))
 
+(print (pro6 100 (function colpro6)))

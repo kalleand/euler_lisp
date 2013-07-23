@@ -1,6 +1,7 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 7
 ;
-; Finds the 10 001st prime.
+; Finds the 10001st prime.
 (defun prime? (n lat)
   (cond
     ((null lat) t)
@@ -15,4 +16,4 @@
        (t (pro7 (+ n 2) (+ i 1) (cons n lat)))))
     (t (pro7 (+ n 2) i lat))))
 
-(pro7 3 2 '(2))
+(print (pro7 3 2 '(2)))

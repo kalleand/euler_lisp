@@ -1,3 +1,4 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 4
 ;
 ; Finds the largest palindromic number a and b where 
@@ -16,3 +17,4 @@
     ((pal (* a b)) (max (* a b) (pro4 (- a 1) 999)))
     (t (pro4 a (- b 1)))))
 
+(print (pro4 999 999))

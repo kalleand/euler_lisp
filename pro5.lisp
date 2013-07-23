@@ -1,3 +1,4 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 5
 ;
 ; Finds the smallest integer evenly divisable by 1 through n).
@@ -13,4 +14,4 @@
     ((divisable (* n i) n) (* n i))
     (t (pro5 n (+ i 1)))))
 
-(pro5 20 1)
+(print (pro5 20 1))

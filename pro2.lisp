@@ -1,3 +1,4 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 2
 ;
 ; Finds the sum of all even fibonacci numbers under 4 million.
@@ -8,4 +9,4 @@
     ((eq (mod n2 2) 0) (+ n2 (pro2 n2 (+ n1 n2))))
     (t (pro2 n2 (+ n1 n2)))))
 
-(pro2 1 1)
+(print (pro2 1 1))

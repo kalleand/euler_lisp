@@ -1,3 +1,4 @@
+#!/usr/bin/sbcl --script
 ; Project Euler problem 1.
 ; 
 ; Sums the integers between 1 and 999 that are even divisable
@@ -7,4 +8,4 @@
                 ((eq n 0) 0)
                 ((or (eq (mod n 3) 0) (eq (mod n 5) 0)) (+ n (pro1 (- n 1))))
                 (t (pro1 (- n 1)))))
-(pro1 999)
+(print (pro1 999))
