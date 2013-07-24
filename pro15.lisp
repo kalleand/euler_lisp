@@ -3,6 +3,8 @@
 ;
 ; Using the same memoization technique as in problem 14 we find the number of
 ; ways one can travel in a 20x20 field where you can only travel right or left.
+;
+; (Boring way is to take 40 choose 20 = 40! / (20!)^2)
 
 ; Memoization
 (defun Basic-Memo (Function)
