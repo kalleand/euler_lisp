@@ -11,8 +11,8 @@
 
 (defun pro9 (b a)
   (cond
-    ((= b 0) 0)
-    ((= a 0) (pro9 (- b 1) (- b 2)))
+    ((zerop b) 0)
+    ((zerop a) (pro9 (- b 1) (- b 2)))
     ((eq (+ (* a a) (* b b)) (expt (- (- 1000 a) b) 2)) (* a (* b (- (- 1000 a) b))))
     (t (pro9 b (- a 1)))))
 

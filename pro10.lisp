@@ -5,8 +5,7 @@
 ; Finds the sum of all primes less than 2 million using sieve of Eratosthenes.
 
 ; Collector; the sum. Prints the input.
-(defun colpro10 (n)
-  (print n))
+(defun colpro10 (n) n)
 
 ; Constructs the sieve.
 (defun msieve (n)
@@ -22,7 +21,7 @@
 (defun pro10 (num sieve col)
   (cond
     ((> num 1999999) (funcall col 0))
-    ((eq (sbit sieve num) 0) (pro10 (+ num 1) (mark num sieve) 
+    ((zerop (sbit sieve num)) (pro10 (+ num 1) (mark num sieve) 
                                     (lambda (n)
                                       (funcall col (+ num n)))))
     (t (pro10 (+ num 1) sieve col))))

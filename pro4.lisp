@@ -12,8 +12,8 @@
 
 (defun pro4 (a b)
   (cond
-    ((= a 0) 0)
-    ((= b 0) (pro4 (- a 1) 999))
+    ((zerop a) 0)
+    ((zerop b) (pro4 (- a 1) 999))
     ((pal (* a b)) (max (* a b) (pro4 (- a 1) 999)))
     (t (pro4 a (- b 1)))))
 

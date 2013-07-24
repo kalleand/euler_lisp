@@ -37,7 +37,7 @@
 ; Main function gets the number that produce the longest collatz sequence.
 (defun pro14 (n i m)
   (cond
-    ((= n 0) i)
+    ((zerop n) i)
     (t (let ((tmp (collatz n)))
          (cond
            ((> tmp m) (pro14 (- n 1) n tmp))

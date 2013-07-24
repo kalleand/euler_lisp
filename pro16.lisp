@@ -6,7 +6,7 @@
 ; Summing the digits in a large number (2^1000).
 (defun pro16 (n)
   (cond
-    ((= n 0) 0)
+    ((zerop n) 0)
     (t (+ (mod n 10) (pro16 (floor (/ n 10)))))))
 
 (print (pro16 (expt 2 1000)))

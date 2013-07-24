@@ -22,13 +22,13 @@
 
 
 
-; Much more exciting way that uses the collector function.
+; Much more exciting way that uses an collector function.
 (defun colpro6 (a b)
   (- (* a a) b))
 
 (defun pro6 (n col)
   (cond
-    ((eq n 0) (funcall col 0 0))
+    ((zerop n) (funcall col 0 0))
     (t (pro6 (- n 1)
              (lambda (a b)
                (funcall col (+ a n) (+ (* n n) b)))))))
