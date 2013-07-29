@@ -1,10 +1,11 @@
 #!/usr/bin/sbcl --script
+; Project Euler problem 18.
 
 (defun pro18-helper (new old)
   (cond
     ((null old) new)
     ((null new) '())
-    (t (cons (+ (car new) (max (car old) (car (cdr old)))) (pro18-helper (cdr new) (cdr old)))))) 
+    (t (cons (+ (car new) (max (car old) (car (cdr old)))) (pro18-helper (cdr new) (cdr old))))))
 
 
 (defun pro18 (l)
