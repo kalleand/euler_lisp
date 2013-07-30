@@ -3,6 +3,9 @@
 ; Project Euler problem 23.
 ;
 ; This is not as fast as I'd like it to be. It is correct however.
+;
+; The problem is to find the sum of all numbers that can not be expressed as a
+; sum of two abundant numbers.
 
 (defun proper-divisors (n)
  (proper-divisors-helper n 2 (sqrt n)))
@@ -19,8 +22,8 @@
 (defun abundant-sum (i l)
   (cond
     ((null l) i)
-    ((null (member (- i (car l)) l)) (abundant-sum i (cdr l)))
-    (t 0)))
+    ((not (null (member (- i (car l)) l))) 0)
+    (t (abundant-sum i (cdr l)))))
 
 (defun pro23 (i l)
   (cond
