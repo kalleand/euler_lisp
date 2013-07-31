@@ -1,5 +1,22 @@
 #!/usr/bin/sbcl --script
 ; Project Euler problem 24.
+;
+; The way this works is that it uses combinatorics and depend on the input to be
+; an ordered list of numbers from 0 to a specific number (in this case 9).
+;
+; Then if n is over the number of permutations that can be achieved with the
+; rest of the numbers available the current number is changed from the lowest
+; possible.
+;
+; Special attention is made for when we want the first lexical permutation (it
+; is the input) and the last lexical permutation (it is the reversed list).
+; 
+; The function is called with n as 999999 (one less than one million) because
+; the list is 0 indexed.
+; 
+; The function that calculates the factorial could be made more efficiant with
+; memoization. However, I feel this is not needed as it is called ten times in
+; total during the calculation.
 (defun factorial (n)
   (cond
     ((zerop n) 1)
