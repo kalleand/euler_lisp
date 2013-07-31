@@ -10,10 +10,10 @@
 ;
 ; Special attention is made for when we want the first lexical permutation (it
 ; is the input) and the last lexical permutation (it is the reversed list).
-; 
+;
 ; The function is called with n as 999999 (one less than one million) because
 ; the list is 0 indexed.
-; 
+;
 ; The function that calculates the factorial could be made more efficiant with
 ; memoization. However, I feel this is not needed as it is called ten times in
 ; total during the calculation.
