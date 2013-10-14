@@ -22,7 +22,7 @@
         (b-max 0))
     (do ((n -999 (+ n 2)))
       ((> n 999) 'done)
-      (do ((m -999 (+ m 2)))
+      (do ((m 5 (+ m 2)))
         ((> m 999) nil)
         (let ((primes (get-number-primes n m)))
           (if (> primes n-prime)
