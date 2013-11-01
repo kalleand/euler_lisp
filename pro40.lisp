@@ -4,10 +4,9 @@
   (map 'list #'(lambda (c) (read-from-string (string c))) (prin1-to-string num)))
 
 ;;; Boring solution (uses a lot of memory).
-;(time (let ((digits (cons 1 (loop for i from 1 to 200000 append (get-digits i)))))
-  ;(* (nth 1 digits) (nth 10 digits) (nth 100 digits)
-     ;(nth 1000 digits) (nth 10000 digits) (nth 100000 digits)
-     ;(nth 1000000 digits))))
+;;; I found the upper limit of 200000 through trial and error.
+;(let ((digits (loop for i from 0 to 200000 append (get-digits i))))
+;  (apply #'* (map 'list (lambda (a) (nth a digits)) (loop for x from 0 to 6 collect (expt 10 x)))))
 
 ;;; Better solution.
 (defun pro40 (num order l)
@@ -20,4 +19,4 @@
               (pro40 (1+ num) (+ order len) (cdr l)))
            (pro40 (1+ num) (+ order len) l))))))
 
-(format t "~D~%" (pro40 1 0 (list 1 10 100 1000 10000 100000 1000000)))
+(format t "~D~%" (pro40 1 0 (loop for x from 0 to 6 collect (expt 10 x))))
