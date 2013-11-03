@@ -6,8 +6,8 @@
           (loop for b from 1 below (- n c) do
                 (let ((a (- n c b)))
                   (if (and (> b a) (= (* c c) (+ (* b b) (* a a))))
-                    (incf counter)))))
-    (return-from triangles counter)))
+                    (incf counter))))
+          finally (return counter))))
 
 (let ((p 1001)
       (max 0))
