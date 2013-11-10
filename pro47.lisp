@@ -7,7 +7,8 @@
     (t (let ((limit (truncate (sqrt n))))
          (loop for it from i to limit by 2
                if (zerop (mod n it)) do
-               (return-from get-prime-factors (cons it (get-prime-factors (/ n it) it nil))))
+               (return-from get-prime-factors
+                            (cons it (get-prime-factors (/ n it) it nil))))
          (return-from get-prime-factors (list n))))))
 
 (loop for it from 647
@@ -15,7 +16,7 @@
       with consecutive = 0
       while (< consecutive 4)
       when (> (length (remove-duplicates (get-prime-factors it))) 3)
-      do (if (and (> consecutive 0) (= (- it 1) last))
+      do (if (= (- it 1) last)
            (progn (incf consecutive)
                   (incf last))
            (progn (setf consecutive 1)
