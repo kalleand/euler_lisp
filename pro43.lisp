@@ -1,12 +1,17 @@
 #!/usr/bin/sbcl --script
 
+;;; Works by for each item in the list append it to the list of all possible
+;;; permutations without the item.
 (defun perm (lst)
-  (flet ((con-lst (element perm-lst)
-           (map 'list #'(lambda (l) (cons element l)) perm-lst)))
-    (if (null lst)
-      '(())
-      (loop for e in lst
-        append (con-lst e (perm (remove e lst)))))))
+  (if (null lst)
+    '(())
+    (reduce #'append
+            (map 'list
+                 (lambda (x)
+                   (map 'list
+                        (lambda (l) (cons x l))
+                        (perm (remove x lst))))
+                 lst))))
 
 (defun digits->int (lst)
   (reduce (lambda (x y) (+ y (* 10 x))) lst))
